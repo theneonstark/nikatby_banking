@@ -12,25 +12,25 @@ const data = [
 ];
 
 const dashboardData = [
-    {title: "Upi Collection", count: 0, amt: 1000, charge: 200, gst: "48%", totalcharge: 12, inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Virtual Collection", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12 , inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Bank Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Upi Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Recharge", count: 0,charge: 200, gst: "48%", amt: 1000, totalcharge: 12, inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Bill Payment", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Aeps", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Money transfer", charge: 200, gst: "48%", count: 0, amt: 1000, totalcharge: 12, inclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
+    {title: "Upi Collection", count: 0, amt: 1000, charge: 200, gst: "48%", totalcharge: 12},
+    {title: "Virtual Collection", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12 },
+    {title: "Bank Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Upi Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Recharge", count: 0,charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Bill Payment", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Aeps", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Money transfer", charge: 200, gst: "48%", count: 0, amt: 1000, totalcharge: 12},
 ]
 function PayinPerformance() {
     return (
         <div className="px-4 py-10 rounded-md bg-gradient-to-l from-green-400 to-green-500">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <h1 className="text-2xl sm:text-3xl text-center md:text-left">
+                <h1 className="text-3xl sm:text-4xl sm:font-bold text-white text-center md:text-left">
                     Payin Performance Dashboard
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 justify-center">
                     <DatePickerWithRange />
-                    <Button className="flex items-center justify-center">
+                    <Button className="flex items-center justify-center bg-green-600 hover:bg-green-300">
                         <Filter className="w-4 h-4 mr-1" /> Filter
                     </Button>
                 </div>
@@ -62,7 +62,6 @@ function PayinPerformance() {
                             gst={item.gst}
                             payout={item.amt}
                             totalcharge={item.totalcharge}
-                            inclasses={item.inclasses}
                         />
                     ))
                 }

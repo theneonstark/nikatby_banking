@@ -1,24 +1,24 @@
 import React from 'react'
-import { Card, CardFooter, CardHeader, CardTitle } from './card'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from './card'
 import { Separator } from './separator'
 
-function DashboardCard({title, count, amt, charge, gst, totalcharge, inclasses, outclasses}) {
+function DashboardCard({title, count, amt, charge, gst, totalcharge}) {
   return (
     <div>
-      <Card className={`${outclasses ? outclasses : inclasses} text-white`}>
+      <Card className={`bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-4 text-white flex flex-col gap-4`}>
         <div className='flex justify-between'>
-            <CardHeader>{title}</CardHeader>
-            <CardHeader>{count}</CardHeader>
+            <CardTitle>{title}</CardTitle>
+            <CardTitle>{count}</CardTitle>
         </div>
-        <CardTitle>{amt}</CardTitle>
+        <CardTitle className="text-center">{amt}</CardTitle>
         <div className='flex justify-between'>
         <div>
             <p>Charge</p>
-            <CardTitle>{charge}</CardTitle>
+            <CardDescription className="text-white">{charge}</CardDescription>
         </div>
         <div>
             <p>GST</p>
-            <CardTitle>{gst}</CardTitle>
+            <CardDescription className="text-white">{gst}</CardDescription>
         </div>
         </div>
         <Separator/>

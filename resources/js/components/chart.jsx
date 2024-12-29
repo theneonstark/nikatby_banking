@@ -55,7 +55,7 @@ export function Chart() {
   }, [])
 
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col text-white bg-white/60 backdrop-blur-lg border border-white/50 shadow-lg rounded-lg p-4">
       <CardHeader className="items-center pb-0">
         <CardTitle>Pie Chart - Donut with Text</CardTitle>
         <CardDescription>January - June 2024</CardDescription>

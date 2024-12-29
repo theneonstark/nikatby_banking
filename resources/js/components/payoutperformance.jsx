@@ -12,14 +12,14 @@ const data = [
 ];
 
 const dashboardData = [
-    {title: "Upi Collection", count: 0, amt: 1000, charge: 200, gst: "48%", totalcharge: 12, outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Virtual Collection", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12 , outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Bank Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Upi Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Recharge", count: 0,charge: 200, gst: "48%", amt: 1000, totalcharge: 12, outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Bill Payment", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Aeps", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12, outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
-    {title: "Money transfer", charge: 200, gst: "48%", count: 0, amt: 1000, totalcharge: 12, outclasses:" bg-white/20 backdrop-blur-lg border border-white/10 shadow-lg rounded-lg p-6"},
+    {title: "Upi Collection", count: 0, amt: 1000, charge: 200, gst: "48%", totalcharge: 12},
+    {title: "Virtual Collection", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Bank Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Upi Payout", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Recharge", count: 0,charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Bill Payment", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Aeps", count: 0, charge: 200, gst: "48%", amt: 1000, totalcharge: 12},
+    {title: "Money transfer", charge: 200, gst: "48%", count: 0, amt: 1000, totalcharge: 12},
 ]
 function PayoutPerformance() {
     return (
@@ -61,7 +61,6 @@ function PayoutPerformance() {
                             gst={item.gst}
                             payout={item.amt}
                             totalcharge={item.totalcharge}
-                            outclasses={item.outclasses}
                         />
                     ))
                 }
