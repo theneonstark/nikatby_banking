@@ -1,15 +1,18 @@
+import AddMoney from '@/components/addmoney'
 import Layout from '@/components/layout'
+import QrPayment from '@/components/qrpayment'
+import UpiPayment from '@/components/upipayment'
 import React from 'react'
 
 function Payout({section}) {
   const handle =() =>{
     switch (section){
       case 'qrcode':
-        return <h2>QRCode</h2>
+        return <QrPayment/>
       case 'upirequest':
-        return <h2>UPI Request</h2>
+        return <UpiPayment/>
       case 'addfund':
-        return <h2>Add Fund</h2>
+        return <AddMoney/>
       default:
         return <h2>Invalid section</h2>
     }

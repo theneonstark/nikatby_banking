@@ -80,17 +80,17 @@ export const data = {
         icon: BookOpen,
         items: [
           {
-            title: "Payin Report",
-            url: "#",
+            title: "Transaction",
+            url: "/reports/transaction",
           },
           {
-            title: "Payout Report",
-            url: "#",
+            title: "Ledger",
+            url: "/reports/ledger",
           },
-          {
-            title: "Archive Report",
-            url: "#",
-          },
+          // {
+          //   title: "Archive Report",
+          //   url: "#",
+          // },
         ],
       },
       {
