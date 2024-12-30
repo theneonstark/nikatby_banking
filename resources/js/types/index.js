@@ -37,7 +37,7 @@ export const data = {
     navMain: [
       {
         title: "Dashboard",
-        url: "/Dashboard",
+        url: "#",
         icon: SquareTerminal,
         isActive: true,
         items: [
@@ -52,26 +52,26 @@ export const data = {
         ],
       },
       {
-        title: "Payout",
+        title: "Payment Resource",
         url: "#",
         icon: Bot,
         items: [
           {
-            title: "Add Balance",
-            url: "AddBalance",
+            title: "QR Money",
+            url: "/pay/qrcode",
           },
           {
-            title: "Payment",
-            url: "#",
+            title: "Upi Add Money",
+            url: "/pay/upirequest",
           },
           {
-            title: "Passbook",
-            url: "#",
+            title: "Add Fund",
+            url: "/pay/addfund",
           },
-          {
-            title: "Api Keys",
-            url: "#",
-          },
+          // {
+          //   title: "Api Keys",
+          //   url: "#",
+          // },
         ],
       },
       {
