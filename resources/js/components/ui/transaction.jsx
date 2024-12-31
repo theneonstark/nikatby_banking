@@ -143,11 +143,11 @@ import {
 //     },
 // ];
 
-function Payoutstatement() {
+function TransactionStatement() {
     return (
         <Card>
             <CardContent className="flex justify-between py-4">
-                <CardTitle>PAYOUT Statement</CardTitle>
+                <CardTitle>Transaction</CardTitle>
             </CardContent>
             <CardContent>
                 <Table>
@@ -198,4 +198,4 @@ function Payoutstatement() {
     );
 }
 
-export default Payoutstatement;
+export default TransactionStatement;

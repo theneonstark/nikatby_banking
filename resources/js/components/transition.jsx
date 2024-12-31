@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { Inertia } from "@inertiajs/inertia";
@@ -16,22 +16,27 @@ import {
     SelectValue,
 } from "./ui/select";
 import PayInstatement from "./ui/payinstatement";
+import Payoutstatement from "./ui/payoutstatement";
+import QrStatement from "./ui/qrstatement";
+import ChargeBackStatement from "./ui/chargebackstatement";
+import TransactionStatement from "./ui/transaction";
 
 function Transition() {
+    const [activeStatement, setActiveStatement] = useState('transaction')
     return (
         <div>
             <Card className="flex gap-4 py-4 px-4">
-                <Button>
-                    <InertiaLink href="#">PAY-IN</InertiaLink>
+                <Button className={`${activeStatement === "payin" ? "bg-red-400" : ""}`} onClick={() => setActiveStatement("payin")}>
+                    PAY-IN
                 </Button>
-                <Button>
-                    <InertiaLink href="#">PAY-OUT</InertiaLink>
+                <Button className={`${activeStatement === "payout" ? "bg-red-400" : ""}`} onClick={() => setActiveStatement("payout")}>
+                    PAY-OUT
                 </Button>
-                <Button>
-                    <InertiaLink href="#">QR-CODE</InertiaLink>
+                <Button className={`${activeStatement === "qrcode" ? "bg-red-400" : ""}`} onClick={() => setActiveStatement("qrcode")}>
+                    QR-CODE
                 </Button>
-                <Button>
-                    <InertiaLink href="#">CHARGE-BACK</InertiaLink>
+                <Button className={`${activeStatement === "chargeback" ? "bg-red-400" : ""}`} onClick={() => setActiveStatement("chargeback")}>
+                    CHARGE-BACK
                 </Button>
             </Card>
             {/*  */}
@@ -94,7 +99,13 @@ function Transition() {
                     </Select>
                 </div>
             </Card>
-            <PayInstatement/>
+            <div>
+                {activeStatement === 'transaction' && <TransactionStatement/>}
+                {activeStatement === 'payin' && <PayInstatement/>}
+                {activeStatement === 'payout' && <Payoutstatement/>}
+                {activeStatement === 'qrcode' && <QrStatement/>}
+                {activeStatement === 'chargeback' && <ChargeBackStatement/>}
+            </div>
         </div>
     );
 }
