@@ -1,3 +1,4 @@
+import Ladger from '@/components/ladger';
 import Layout from '@/components/layout'
 import Transition from '@/components/transition'
 import React from 'react'
@@ -8,7 +9,7 @@ function Report({section}) {
       case "transaction":
       return <Transition/>;
       case "ledger":
-      return <h2>Payin Report</h2>
+      return <Ladger/>
       default: return <h2>Invalid Request</h2>
     }
   }
