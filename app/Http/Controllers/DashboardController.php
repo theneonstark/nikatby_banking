@@ -12,4 +12,13 @@ class DashboardController extends Controller
             'section' =>$section,
         ]);
     }
+
+    public function select($section = null){
+        return Inertia::render('Report',['section' => $section]);
+    }
+
+    public function handle($section = null)
+    {
+        return Inertia::render('Payout', ['section' => $section]);
+    }
 }
