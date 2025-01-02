@@ -21,4 +21,12 @@ class DashboardController extends Controller
     {
         return Inertia::render('Payout', ['section' => $section]);
     }
+    public function support()
+    {
+        return Inertia::render('Support');
+    }
+    public function Credentials()
+    {
+        return Inertia::render('Credentials');
+    }
 }

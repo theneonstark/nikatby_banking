@@ -94,25 +94,26 @@ export const data = {
         ],
       },
       {
-        title: "Download Center",
-        url: "#",
+        title: "Support",
+        url: "/Support",
         icon: GalleryVerticalEnd,
         noArrow: true,
       },
       {
-        title: "User Management",
-        url: "#",
+        title: "Credentials",
+        url: "/Credentials",
         icon: Map,
-        items:[
-          {
-            title: "Sub Merchant List",
-            url: "#",
-          },
-          {
-            title: "Login History",
-            url: "#",
-          },
-        ]
+        noArrow: true,
+        // items:[
+        //   {
+        //     title: "Sub Merchant List",
+        //     url: "#",
+        //   },
+        //   {
+        //     title: "Login History",
+        //     url: "#",
+        //   },
+        // ]
       },
     ],
     // projects: [

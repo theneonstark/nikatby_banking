@@ -12,4 +12,6 @@ Route::post('/', [UserController::class, 'register'])->name('register');
 Route::get('/Dashboard/{section?}', [DashboardController::class, 'show'])->name('dashboard');
 Route::get('/pay/{section?}', [DashboardController::class, 'handle'])->name('payout');
 Route::get('/reports/{section?}',[DashboardController::class, 'select'])->name('report');
-Route::get('/cerdentials', [DashboardController::class, 'cerdentials'])->name('cerdentials');
+// Route::get('/cerdentials', [DashboardController::class, 'cerdentials'])->name('cerdentials');
+Route::get('/Support', [DashboardController::class, 'support'])->name('Support');
+Route::get('/Credentials', [DashboardController::class, 'Credentials'])->name('credentials');
