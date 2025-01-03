@@ -12,138 +12,7 @@ import {
     TableFooter,
 } from "./table";
 
-// export const invoices = [
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-//     {
-//         date: "12/12/12",
-//         TxnId: "uioqweurewqr54533ewr",
-//         RefId: "dsfasdf78sdf4a5sdf4",
-//         BankRef: "SBI",
-//         Amount: 5000,
-//         status: "True",
-//     },
-// ];
-
-function TransactionStatement() {
+function TransactionStatement({ invoices, totalAmount }) {
     return (
         <Card>
             <CardContent className="flex justify-between py-4">
@@ -161,36 +30,42 @@ function TransactionStatement() {
                             <TableHead>Api Txnid</TableHead>
                             <TableHead>Txnid</TableHead>
                             <TableHead>Reference</TableHead>
-                            <TableHead>Amount</TableHead>
                             <TableHead>Charge</TableHead>
                             <TableHead>Gst</TableHead>
                             <TableHead>Profit</TableHead>
                             <TableHead>Tds</TableHead>
+                            <TableHead className="text-right">Amount</TableHead>
                         </TableRow>
                     </TableHeader>
-                    {/* <TableBody>
+                    <TableBody>
                         {invoices.map((invoice) => (
-                            <TableRow key={invoice.date}>
+                            <TableRow key={invoice.Date}>
                                 <TableCell className="font-medium">
-                                    {invoice.date}
+                                    {invoice.Date}
                                 </TableCell>
-                                <TableCell>{invoice.TxnId}</TableCell>
-                                <TableCell>{invoice.RefId}</TableCell>
-                                <TableCell>{invoice.BankRef}</TableCell>
-                                <TableCell>{invoice.Amount}</TableCell>
+                                <TableCell>{invoice.Status}</TableCell>
+                                <TableCell>{invoice.Operator}</TableCell>
+                                <TableCell>{invoice.Number}</TableCell>
+                                <TableCell>{invoice.ApiTxnid}</TableCell>
+                                <TableCell>{invoice.Txnid}</TableCell>
+                                <TableCell>{invoice.Reference}</TableCell>
+                                <TableCell>{invoice.Charge}</TableCell>
+                                <TableCell>{invoice.Gst}</TableCell>
+                                <TableCell>{invoice.Profit}</TableCell>
+                                <TableCell>{invoice.Tds}</TableCell>
                                 <TableCell className="text-right">
-                                    {invoice.status}
+                                    {invoice.Amount}
                                 </TableCell>
                             </TableRow>
                         ))}
-                    </TableBody> */}
+                    </TableBody>
                     <TableFooter>
-                        {/* <TableRow>
-                            <TableCell colSpan={5}>Total</TableCell>
+                        <TableRow>
+                            <TableCell colSpan={11}>Total</TableCell>
                             <TableCell className="text-right">
-                                $2,500.00
+                                {totalAmount}
                             </TableCell>
-                        </TableRow> */}
+                        </TableRow>
                     </TableFooter>
                 </Table>
             </CardContent>

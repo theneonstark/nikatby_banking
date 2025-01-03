@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 import Payments from "./ui/payments";
-import { RefreshCcw, SearchIcon } from "lucide-react";
+import { IndianRupee, RefreshCcw, SearchIcon } from "lucide-react";
 import { DatePickerWithRange } from "./ui/datepickerwithrange";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "./ui/table";
+import { format } from "date-fns"; // Import the format function
+
 
 const payCard = [
     { title: "Scan & Pay", head: "Load Amount" },
@@ -14,137 +16,143 @@ const payCard = [
     { title: "Move To Payout Wallet", head: "Transfer Amount" },
 ];
 
-const invoices = [
+export const invoices = [
     {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
+        date: "2023-11-12",
+        TxnId: "txn9876qwert",
+        RefId: "ref1234abcd",
+        BankRef: "HDFC",
+        Amount: 7500,
         status: "True",
     },
     {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
+        date: "2023-08-15",
+        TxnId: "txn1234abcd",
+        RefId: "ref5678efgh",
+        BankRef: "ICICI",
+        Amount: 5400,
+        status: "False",
+    },
+    {
+        date: "2023-10-22",
+        TxnId: "txn3456ghij",
+        RefId: "ref9012ijkl",
         BankRef: "SBI",
-        Amount: 5000,
+        Amount: 12000,
         status: "True",
     },
     {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
+        date: "2023-07-30",
+        TxnId: "txn4567klmn",
+        RefId: "ref3456mnop",
+        BankRef: "Axis Bank",
+        Amount: 9800,
         status: "True",
     },
     {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
+        date: "2023-09-09",
+        TxnId: "txn5678opqr",
+        RefId: "ref6789qrst",
+        BankRef: "Kotak Mahindra",
+        Amount: 11500,
+        status: "False",
+    },
+    {
+        date: "2023-06-25",
+        TxnId: "txn6789stuv",
+        RefId: "ref7890uvwx",
+        BankRef: "RBL",
+        Amount: 4500,
         status: "True",
     },
     {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
+        date: "2023-05-19",
+        TxnId: "txn7890wxyz",
+        RefId: "ref8901yzab",
+        BankRef: "Yes Bank",
+        Amount: 6700,
         status: "True",
     },
     {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
+        date: "2023-04-10",
+        TxnId: "txn8901abcd",
+        RefId: "ref9012bcde",
+        BankRef: "IndusInd Bank",
+        Amount: 13200,
+        status: "False",
+    },
+    {
+        date: "2023-03-18",
+        TxnId: "txn9012efgh",
+        RefId: "ref0123defg",
+        BankRef: "Punjab National Bank",
+        Amount: 8100,
         status: "True",
     },
     {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
-        status: "True",
-    },
-    {
-        date: "12/12/12",
-        TxnId: "uioqweurewqr54533ewr",
-        RefId: "dsfasdf78sdf4a5sdf4",
-        BankRef: "SBI",
-        Amount: 5000,
+        date: "2023-02-05",
+        TxnId: "txn1235ijkl",
+        RefId: "ref4567hijk",
+        BankRef: "Bank of Baroda",
+        Amount: 10400,
         status: "True",
     },
 ];
+
 function QrPayment() {
+    const [dateRange, setDateRange] = useState({ from: null, to: null });
+    const [searchValue, setSearchValue] = useState("");
+    const [filteredInvoices, setFilteredInvoices] = useState(invoices);
+    const [totalAmount, setTotalAmount] = useState(() =>
+        invoices.reduce((sum, invoice) => sum + invoice.Amount, 0)
+    );
+
+    // Invoice data fdiltered function
+    
+    const handleDateChange = (newDateRange) => {
+      // Format the start and end dates
+      const formattedStartDate = newDateRange.from
+        ? format(newDateRange.from, "yyyy-MM-dd")
+        : null;
+      const formattedEndDate = newDateRange.to
+        ? format(newDateRange.to, "yyyy-MM-dd")
+        : null;
+    
+      // Update the state with formatted date values
+      setDateRange({ from: formattedStartDate, to: formattedEndDate });
+    
+      // Log the formatted dates
+      console.log("Start Date: ", formattedStartDate);
+      console.log("End Date: ", formattedEndDate);
+    };
+    
+    const handleSearchClick = () => {
+      if (dateRange.from && dateRange.to) {
+        console.log("Searching with date range: ", dateRange);
+        const filteredData = invoices.filter((invoice) => {
+          return invoice.date >= dateRange.from && invoice.date <= dateRange.to; // Compare dates
+        });
+    
+        setFilteredInvoices(filteredData);
+        const newTotal = filteredData.reduce((sum, invoice) => sum + invoice.Amount, 0);
+        setTotalAmount(newTotal);
+        console.log("Filtered Invoices: ", filteredData);
+      } else {
+        console.log("Invalid date range. Please select valid from and to dates.");
+      }
+    };
+    
+    // data refresh function
+    
+    const handleRefreshClick = () => {
+        setFilteredInvoices(invoices); // Reset to original data
+        setDateRange({ from: null, to: null }); // Clear the date range
+        setSearchValue(""); // Clear the search input
+        console.log("refresh");
+        
+    };
+    
+
     return (
         <div className="px-4 py-10 grid grid-cols-1 gap-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -158,17 +166,21 @@ function QrPayment() {
                     <CardContent className="flex justify-between py-2">
                         <CardTitle>Search</CardTitle>
                         <div>
-                            <Button>
+                            <Button onClick={handleSearchClick}>
                                 <SearchIcon /> SEARCH
                             </Button>
-                            <Button className="bg-green-600">
+                            <Button className="bg-green-600" onClick={handleRefreshClick}>
                                 <RefreshCcw /> REFRESH
                             </Button>
                         </div>
                     </CardContent>
                     <CardContent className="grid grid-cols-2">
-                    <DatePickerWithRange />
-                    <Input placeholder="Search Value" />
+                         <DatePickerWithRange onDateChange={handleDateChange} />
+                         <Input
+                             placeholder="Search Value"
+                             value={searchValue}
+                             onChange={(e) => setSearchValue(e.target.value)}
+                         />
                     </CardContent>
                 </Card>
             </div>
@@ -192,14 +204,14 @@ function QrPayment() {
                                     <TableHead>Txn Id</TableHead>
                                     <TableHead>Ref Id</TableHead>
                                     <TableHead>Bank Ref</TableHead>
-                                    <TableHead>Amount</TableHead>
-                                    <TableHead className="text-right">
+                                    <TableHead >
                                         Status
                                     </TableHead>
+                                    <TableHead className="text-right">Amount</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {invoices.map((invoice) => (
+                                {filteredInvoices.map((invoice) => (
                                     <TableRow key={invoice.date}>
                                         <TableCell className="font-medium">
                                             {invoice.date}
@@ -213,11 +225,11 @@ function QrPayment() {
                                         <TableCell>
                                             {invoice.BankRef}
                                         </TableCell>
-                                        <TableCell>
-                                            {invoice.Amount}
+                                        <TableCell >
+                                            {invoice.status}
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            {invoice.status}
+                                            {invoice.Amount}
                                         </TableCell>
                                     </TableRow>
                                 ))}
@@ -225,8 +237,9 @@ function QrPayment() {
                             <TableFooter>
                                 <TableRow>
                                     <TableCell colSpan={5}>Total</TableCell>
-                                    <TableCell className="text-right">
-                                        $2,500.00
+                                    <TableCell className=" flex justify-end">
+                                       <IndianRupee/>
+                                       {totalAmount}
                                     </TableCell>
                                 </TableRow>
                             </TableFooter>
