@@ -16,9 +16,10 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
-    public function create(): Response
+    public function create():\Inertia\Response
     {
-        return Inertia::render('Auth/Login', [
+      
+        return Inertia::render('Auth/login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
         ]);
@@ -29,11 +30,16 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $credentials = $request->only('email', 'password');
 
-        $request->session()->regenerate();
+        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            $request->session()->regenerate();
+            return redirect('dashboard/Payin');
+        }
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return back()->withErrors([
+            'email' => __('The provided credentials do not match our records.'),
+        ]);
     }
 
     /**
@@ -42,11 +48,9 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }
