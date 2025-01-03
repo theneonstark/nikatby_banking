@@ -20,7 +20,7 @@ function Signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        Inertia.post('/', formData, {
+        Inertia.post('/signup', formData, {
             onError: (err) => {
                 setErrors(err);
             },

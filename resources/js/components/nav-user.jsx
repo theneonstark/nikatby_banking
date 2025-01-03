@@ -6,6 +6,7 @@ import {
     ChevronsUpDown,
     CreditCard,
     LogOut,
+    LucideLogOut,
     Sparkles,
 } from "lucide-react";
 
@@ -26,10 +27,17 @@ import {
     useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
+import { Inertia } from "@inertiajs/inertia";
+import { Button } from "./ui/button";
+import { usePage } from '@inertiajs/inertia-react';
 
 export function NavUser({ user, isNabvar, btnClassName }) {
     const { isMobile } = useSidebar();
+    const { auth } = usePage().props;
 
+    const handleLogout = () => {
+        Inertia.post('/logout'); // Send a POST request to the logout route
+    };
     return (
         <SidebarMenu>
             <SidebarMenuItem>
@@ -53,10 +61,10 @@ export function NavUser({ user, isNabvar, btnClassName }) {
                             </Avatar>
                             <div className="grid flex-1 text-left text-sm leading-tight">
                                 <span className="truncate font-semibold">
-                                    {user.name}
+                                {auth.user.name}
                                 </span>
                                 <span className="truncate text-xs">
-                                    {user.email}
+                                {auth.user.email}
                                 </span>
                             </div>
                             <ChevronsUpDown className="ml-auto size-4" />
@@ -106,8 +114,11 @@ export function NavUser({ user, isNabvar, btnClassName }) {
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                            <LogOut />
-                            Log out
+                            {/* <LogOut onClick={handleLogout} href="/login"/> */}
+                            <Button onClick={handleLogout}>
+                                <LucideLogOut/>
+                                logout
+                            </Button>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

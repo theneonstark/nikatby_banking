@@ -43,11 +43,11 @@ export const data = {
         items: [
           {
             title: "Payin Dashboard",
-            url: "/Dashboard/Payin",
+            url: "/dashboard/Payin",
           },
           {
             title: "Payout Dashboard",
-            url: "/Dashboard/Payout",
+            url: "/dashboard/Payout",
           },
         ],
       },

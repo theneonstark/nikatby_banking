@@ -11,7 +11,7 @@ function Dashboard({section}) {
       case 'Payout':
         return <PayoutPerformance />
         default:
-          return <Dashboard/>
+          return <PayinPerformance/>
     }
   }
   return (
